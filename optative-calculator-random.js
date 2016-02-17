@@ -6,10 +6,12 @@ function changer(id, newValue) {
 function suma(num) {
 	var operation = document.getElementById("op" + num);
 	var html = operation.innerHTML;
-	var str = html.substr(html.indexOf(" ") + 1);
-	var operands = str.split("+");
-	var result = parseInt(operands[0]) + parseInt(operands[1]);
-	changer("op" + num, "=" + result);
+	if (html.indexOf("=") === -1) {
+		var str = html.substr(html.indexOf(" ") + 1);
+		var operands = str.split("+");
+		var result = parseInt(operands[0]) + parseInt(operands[1]);
+		changer("op" + num, "=" + result);
+	}
 }
 
 function newOperation() {
